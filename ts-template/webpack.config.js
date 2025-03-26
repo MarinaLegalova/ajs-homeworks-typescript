@@ -1,6 +1,7 @@
 const path = require('node:path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
   entry: './src/index.ts',
   resolve: {
@@ -11,6 +12,14 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+        },
+      },
+
       {
         test: /\.(?:js|ts)$/,
         exclude: /node_modules/,
